@@ -112,16 +112,16 @@ void update_position()
     else if(keyword == LEFT)
 	   snake[0].position_x--;
 
-   //mudança de posição se tocar nas paredes do mapa alternando para o oposto eixo x
-    if(snake[0].position_x < 0)
-   	   snake[0].position_x = weight-1;
-    else if(snake[0].position_x > weight-1)
-   	   snake[0].position_x = 0;
-   //mudança de posição se tocar nas paredes do mapa alternando para o oposto eixo y
-    if(snake[0].position_y < 0)
-   	   snake[0].position_y = lenght-1;
-    else if(snake[0].position_y > lenght-1)
-   	   snake[0].position_y = 0;
+   //mudanÃ§a de posiÃ§Ã£o se tocar nas paredes do mapa alternando para o oposto eixo x
+    if(snake[0].position_x <= 0)
+   	   snake[0].position_x = weight-2;
+    else if(snake[0].position_x >= weight-1)
+   	   snake[0].position_x = 1;
+   //mudanÃ§a de posiÃ§Ã£o se tocar nas paredes do mapa alternando para o oposto eixo y
+    if(snake[0].position_y <= 0)
+   	   snake[0].position_y = lenght-2;
+    else if(snake[0].position_y >= lenght-1)
+   	   snake[0].position_y = 1;
 
 	   for(int pos=global_max;pos>0;pos--)
 	   {
@@ -147,11 +147,7 @@ int main(int argc, char** argv)
     while(check_game)
 	{
 	update_screen();
-	for(int i=0;i<=30000000;i++)
-	{
-		if(i==30000000){system("cls");}
-	}
-
+	system("cls");
 	   	char l;
 	   	if(kbhit()){l = getch();}
 	   	if(l=='w' && keyword != DOWN){keyword=UP;}
